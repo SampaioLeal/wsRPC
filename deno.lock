@@ -1,0 +1,15 @@
+{
+  "version": "3",
+  "packages": {
+    "specifiers": {
+      "npm:@digitak/bunker": "npm:@digitak/bunker@3.3.6"
+    },
+    "npm": {
+      "@digitak/bunker@3.3.6": {
+        "integrity": "sha512-eK9W41792YCCKB6GV73HGGhN9okKJ5LC6iguq155uBA4X44yUbbz2GpleQAWie4F0nTVXKRr1fi+RLN5JIebGA==",
+        "dependencies": {}
+      }
+    }
+  },
+  "remote": {}
+}

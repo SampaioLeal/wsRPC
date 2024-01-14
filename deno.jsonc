@@ -1,0 +1,7 @@
+{
+  "tasks": {
+    "run:1": "deno run -A ./service-1/main.ts",
+    "run:2": "deno run -A ./service-2/main.ts",
+    "run:3": "deno run -A ./service-3/main.ts"
+  }
+}
