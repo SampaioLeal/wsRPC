@@ -1,16 +1,16 @@
 export interface RPCMessage {
   id: string;
   service: string;
-  args: unknown[];
+  args: never[];
 }
 
-export interface RPCReply {
+export interface RPCReply<T = unknown> {
   id: string;
   ok: boolean;
-  payload: unknown;
+  payload: T;
 }
 
-export type RPCService = <T extends RPCReply>(...args: unknown[]) => Promise<T>;
+export type RPCService = (...args: never[]) => Promise<RPCReply>;
 
 export interface RPCServerOptions extends Deno.ServeOptions {
   port: number;

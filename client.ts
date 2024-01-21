@@ -1,11 +1,13 @@
 import { parseMessage, sendMessage } from "./messages.ts";
 import { RPCClientOptions, RPCReply, RPCService } from "./types.ts";
 
-export async function initializeClient(
+export async function initializeClient<
+  Contracts extends Record<string, RPCService>,
+>(
   options: RPCClientOptions,
-): Promise<Record<string, RPCService>> {
+): Promise<Contracts> {
   const ws = new WebSocket(options.host);
-  const call = (service: string, ...args: unknown[]) => {
+  const call = (service: string, ...args: never[]) => {
     return new Promise<RPCReply>((resolve) => {
       const controller = new AbortController();
       const messageId = crypto.randomUUID();
@@ -27,7 +29,7 @@ export async function initializeClient(
     });
   };
   const callService = (service: string) => {
-    return (...args: unknown[]) => {
+    return (...args: never[]) => {
       return call(service, ...args);
     };
   };
@@ -51,5 +53,5 @@ export async function initializeClient(
     };
   });
 
-  return proxy;
+  return proxy as Contracts;
 }

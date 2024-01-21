@@ -5,7 +5,5 @@ export function sendMessage(socket: WebSocket, message: RPCMessage | RPCReply) {
 }
 
 export function parseMessage(message: string) {
-  return JSON.parse(
-    message,
-  ) as RPCMessage | RPCReply;
+  return JSON.parse(message) as RPCMessage | RPCReply;
 }

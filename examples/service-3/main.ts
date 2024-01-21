@@ -1,4 +1,6 @@
 import { initializeClient, initializeServer } from "../../mod.ts";
+import Service1Contracts from "../contracts/service1.ts";
+import Service2Contracts from "../contracts/service2.ts";
 
 /**
  * Services
@@ -20,11 +22,11 @@ initializeServer({
   services,
 });
 
-const service1 = await initializeClient({
+const service1 = await initializeClient<Service1Contracts>({
   host: "ws://localhost:3001",
 });
 
-const service2 = await initializeClient({
+const service2 = await initializeClient<Service2Contracts>({
   host: "ws://localhost:3002",
 });
 

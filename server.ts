@@ -16,7 +16,6 @@ export function initializeServer(options: RPCServerOptions) {
     const { socket, response } = Deno.upgradeWebSocket(req);
 
     socket.addEventListener("message", async (event) => {
-      // TODO: handle parse errors
       const message = parseMessage(event.data) as RPCMessage;
       const service = options.services.get(message.service);
 
