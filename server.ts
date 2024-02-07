@@ -2,7 +2,7 @@ import { sendMessage } from "./messages.ts";
 import { parseMessage } from "./messages.ts";
 import { RPCMessage, RPCServerOptions } from "./types.ts";
 
-export function initializeServer(options: RPCServerOptions) {
+export function initializeServer(options: RPCServerOptions): Deno.HttpServer {
   console.log("Initializing WebSocket Server");
 
   const server = Deno.serve({
