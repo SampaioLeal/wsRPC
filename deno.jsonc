@@ -1,4 +1,7 @@
 {
+  "name": "@sampaiol/wsrpc",
+  "version": "0.0.2",
+  "exports": "./mod.ts",
   "tasks": {
     "lint": "deno lint",
     "test": "deno test -A ./"
